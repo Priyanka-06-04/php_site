@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Applications Overview</title>
+    <link rel="stylesheet" href="style1.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Decision Making</h1>
+    </header>
+
+    <div class="container" id="topic1">
+        <h2>Introduction</h2>
+        <p>Decision making refers to the order of execution of statements based on certain conditions. It tells the computer to execute a particular part of the program only if the condition is true. It is common in many situations where we may have to change the order of execution based on certain conditions. The control structure determines the order in which statements are executed. It is a block of programming that analyzes variables and chooses a direction in which to go based on given parameters.<br>
+            The branching statements are used to make decisions based on different conditions. In PHP, we have the following five branching statements:
+            <br>1. if statement
+            <br>2. if-else statement
+            <br>3. if-elseif-else statement
+            <br>4. nested if statement
+            <br>5. switch statement
+        </p>
+        
+        <div class="subtopics" id="topic2">
+            <h3>1. if Statement</h3>
+            <p>The <span>if</span> statement executes a block of code if the specified condition is true. If the condition is false, the code block is skipped. For example:<br>
+               <div class="code"><code class="code1"><pre>
+                if ($temperature > 30) {
+                    echo "It's hot outside.";
+                }
+                                </pre></code></div> 
+            </p>
+        </div>
+
+        <div class="subtopics" id="topic3">
+            <h3>2. if-else Statement</h3>
+            <p>The <span>if-else</span> statement allows for two blocks of code to be executed: one if the condition is true and another if the condition is false. For example:<br>
+                <div class="code"><code class="code1"><pre>
+                    if ($temperature > 30) {
+                        echo "It's hot outside.";
+                    } else {
+                        echo "The weather is moderate.";
+                    }
+                                    </pre></code></div>
+            </p>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>3. if-elseif-else Statement</h3>
+            <p>The <span>if-elseif-else</span> statement is used when there are multiple conditions to evaluate. You can chain multiple <span>elseif</span> statements between the <span>if</span> and <span>else</span>. For example:<br>
+              <div class="code"><code class="code1"><pre>
+                if ($temperature > 30) {
+                    echo "It's hot outside.";
+                } elseif ($temperature > 20) {
+                    echo "It's warm outside.";
+                } else {
+                    echo "It's cool outside.";
+                }
+                                </pre></code></div>  
+            </p>
+        </div>
+
+        <div class="subtopics" id="topic5">
+            <h3>4. Nested if Statement</h3>
+            <p>A nested <span>if</span> statement is an <span>if</span> statement inside another <span>if</span> statement. This allows for more complex decision-making structures. For example:<br>
+              <div class="code"><code class="code1"><pre>
+                if ($temperature > 30) {
+                    echo "It's hot outside.";
+                    if ($humidity > 70) {
+                        echo " It's also quite humid.";
+                    }
+                } elseif ($temperature > 20) {
+                    echo "It's warm outside.";
+                } else {
+                    echo "It's cool outside.";
+                }
+                                </pre></code></div>  
+            </p>
+        </div>
+
+        <div class="subtopics" id="topic6">
+            <h3>5. switch Statement</h3>
+            <p>The <span>switch</span> statement is an alternative to using multiple <span>if</span> statements. It allows you to evaluate a single expression against multiple possible values. For example:<br>
+                <div class="code"><code class="code1"><pre>
+                    switch ($day) {
+                        case "Monday":
+                            echo "Start of the work week!";
+                            break;
+                        case "Friday":
+                            echo "End of the work week!";
+                            break;
+                        default:
+                            echo "It's a regular day.";
+                    }
+                                    </pre></code></div>
+            </p>
+        </div>
+
+        <nav>
+            <a href="#topic1">Introduction</a>
+            <a href="#topic2">if Statement</a>
+            <a href="#topic3">if-else Statement</a>
+            <a href="#topic4">if-elseif-else Statement</a>
+            <a href="#topic5">Nested if Statement</a>
+            <a href="#topic6">switch Statement</a>
+        </nav>
+        
+    </div>
+
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>

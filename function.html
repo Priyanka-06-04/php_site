@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in PHP</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Functions in PHP</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>Functions are a fundamental building block in programming that allow you to group a set of statements together to perform a specific task. In PHP, functions help you to organize your code into reusable blocks, which can be executed whenever needed, promoting code reusability and maintainability. Functions can accept input parameters, return values, and can be built-in or user-defined.</p>
+
+        <div class="subtopics" id="topic1">
+            <h3>1. Categories of Functions</h3>
+            <p>In PHP, functions can be categorized into two main types:</p>
+            <ul>
+                <li><strong>Built-in Functions:</strong> These are pre-defined functions provided by PHP that perform specific tasks, such as string manipulation, array handling, and file operations. Examples include <code>strlen()</code>, <code>array_push()</code>, and <code>date()</code>.</li>
+                <li><strong>User-defined Functions:</strong> These are functions that you create yourself to perform specific tasks that are relevant to your application. They enhance the modularity and readability of your code.</li>
+            </ul>
+        </div>
+
+        <div class="subtopics" id="topic2">
+            <h3>2. Defining a Function</h3>
+            <p>To define a function in PHP, you use the <code>function</code> keyword followed by the function name and parentheses. You can also specify parameters within the parentheses.</p>
+            <p><strong>Syntax:</strong></p>
+            <pre><code class="code1">
+function functionName($param1, $param2) {
+    // code to be executed
+}
+            </code></pre>
+            <p><strong>Example:</strong> A simple user-defined function to add two numbers.</p>
+            <div class="code"><code class="code1"><pre>
+function add($a, $b) {
+    return $a + $b;
+}
+            </pre></code></div>
+        </div>
+
+        <div class="subtopics" id="topic3">
+            <h3>3. Calling a Function</h3>
+            <p>To execute the code within a function, you need to call it by its name followed by parentheses. You can pass arguments to the function within the parentheses.</p>
+            <p><strong>Example:</strong> Calling the <code>add</code> function.</p>
+            <div class="code"><code class="code1"><pre>
+$result = add(5, 10);
+echo "The sum is: $result"; // Output: The sum is: 15
+            </pre></code></div>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>4. Built-in Functions</h3>
+            <p>PHP provides many built-in functions for various purposes. Here is an example of a built-in function:</p>
+            <div class="code"><code class="code1"><pre>
+$name = "Alice";
+$length = strlen($name); // Returns the length of the string
+echo "The length of the name is: $length"; // Output: The length of the name is: 5
+            </pre></code></div>
+        </div>
+
+        <div class="subtopics" id="topic5">
+            <h3>5. Return Values</h3>
+            <p>A function can return a value using the <code>return</code> statement. Once a return statement is executed, the function ends, and the returned value can be stored in a variable.</p>
+            <p><strong>Example:</strong> Returning a value from a function.</p>
+            <div class="code"><code class="code1"><pre>
+function multiply($a, $b) {
+    return $a * $b;
+}
+
+$result = multiply(5, 4);
+echo "The product is: $result"; // Output: The product is: 20
+            </pre></code></div>
+        </div>
+
+        <div class="subtopics" id="topic6">
+            <h3>6. Function Parameters</h3>
+            <p>Functions can accept parameters, which are values you pass into the function when calling it. You can specify default values for parameters as well, allowing you to call the function with fewer arguments.</p>
+            <p><strong>Example:</strong> Using default parameter values.</p>
+            <div class="code"><code class="code1"><pre>
+function greet($name = "Guest") {
+    return "Hello, $name!";
+}
+
+echo greet(); // Output: Hello, Guest!
+echo greet("Alice"); // Output: Hello, Alice!
+            </pre></code></div>
+        </div>
+
+        <div class="subtopics" id="topic7">
+            <h3>7. Passing Parameters to Functions</h3>
+            <p>In PHP, you can pass parameters to functions in two ways:</p>
+            <ul>
+                <li><strong>Call by Value:</strong> The function receives a copy of the variable's value. Changes made to the parameter within the function do not affect the original variable.</li>
+                <li><strong>Call by Reference:</strong> The function receives a reference to the original variable. Changes made to the parameter within the function will affect the original variable.</li>
+            </ul>
+            <p><strong>Example of Call by Value:</strong></p>
+            <div class="code"><code class="code1"><pre>
+function increment($num) {
+    $num++;
+    return $num;
+}
+
+$value = 10;
+echo increment($value); // Output: 11
+echo $value; // Output: 10 (original value remains unchanged)
+            </pre></code></div>
+
+            <p><strong>Example of Call by Reference:</strong></p>
+            <div class="code"><code class="code1"><pre>
+function incrementByReference(&$num) {
+    $num++;
+}
+
+$value = 10;
+incrementByReference($value);
+echo $value; // Output: 11 (original value is changed)
+            </pre></code></div>
+        </div>
+
+        <div class="subtopics" id="topic8">
+            <h3>8. Variable Scope</h3>
+            <p>Variable scope defines where a variable can be accessed within your code. In PHP, variables defined outside a function are not accessible inside it unless you use the <code>global</code> keyword.</p>
+            <p><strong>Example:</strong> Using a global variable.</p>
+            <div class="code"><code class="code1"><pre>
+$globalVar = "I'm global";
+
+function showGlobal() {
+    global $globalVar;
+    echo $globalVar;
+}
+
+showGlobal(); // Output: I'm global
+            </pre></code></div>
+        </div>
+
+        <nav>
+            <a href="#topic1">Categories of Functions</a>
+            <a href="#topic2">Defining a Function</a>
+            <a href="#topic3">Calling a Function</a>
+            <a href="#topic4">Built-in Functions</a>
+            <a href="#topic5">Return Values</a>
+            <a href="#topic6">Function Parameters</a>
+            <a href="#topic7">Passing Parameters to Functions</a>
+            <a href="#topic8">Variable Scope</a>
+        </nav>
+        
+    </div>
+
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html

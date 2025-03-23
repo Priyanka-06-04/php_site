@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Applications Overview</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #333333;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PHP BASICS</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>PHP is the web development language written by and for web developers. PHP stands for PHP Hypertext Pre-preprocessor. Originally named Personal Home Page, PHP is a server-side scripting language, typically used to create web applications in combination with a web server, such as Apache.</p>
+        
+        <!-- Tokens Section -->
+        <div class="subtopics" id="topic1">
+            <h3>Tokens</h3>
+            <p>A token is the basic component of source code in a programming language. It is the smallest different, individual, and independent unit used in any programming language. Tokens play an important role in the development of a program.<br>
+                The different types of tokens used in PHP are:<br>
+                1. Keywords<br>
+                2. Identifiers<br>
+                3. Constants<br>
+                4. Operators<br>
+                5. Strings
+            </p>
+        </div>
+
+        <!-- Keywords Section with Table -->
+        <div class="subtopics" id="topic2">
+            <h3>Keywords</h3>
+            <p>Below is a table listing some commonly used PHP keywords and their descriptions:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>echo</td>
+                        <td>Outputs one or more strings.</td>
+                    </tr>
+                    <tr>
+                        <td>if</td>
+                        <td>Conditional statement to execute code if a condition is true.</td>
+                    </tr>
+                    <tr>
+                        <td>else</td>
+                        <td>Executes code if the preceding <code>if</code> condition is false.</td>
+                    </tr>
+                    <tr>
+                        <td>while</td>
+                        <td>Loops through code as long as a specified condition is true.</td>
+                    </tr>
+                    <tr>
+                        <td>for</td>
+                        <td>Loops through code a specific number of times.</td>
+                    </tr>
+                    <tr>
+                        <td>foreach</td>
+                        <td>Loops through each element in an array.</td>
+                    </tr>
+                    <tr>
+                        <td>function</td>
+                        <td>Defines a reusable function.</td>
+                    </tr>
+                    <tr>
+                        <td>return</td>
+                        <td>Returns a value from a function.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>Defines a class, which is a blueprint for objects.</td>
+                    </tr>
+                    <tr>
+                        <td>public</td>
+                        <td>Defines a public access modifier for class members.</td>
+                    </tr>
+                    <tr>
+                        <td>private</td>
+                        <td>Defines a private access modifier for class members.</td>
+                    </tr>
+                    <tr>
+                        <td>protected</td>
+                        <td>Defines a protected access modifier for class members.</td>
+                    </tr>
+                    <tr>
+                        <td>new</td>
+                        <td>Creates a new instance of a class.</td>
+                    </tr>
+                    <tr>
+                        <td>try</td>
+                        <td>Begins a block of code to test for exceptions.</td>
+                    </tr>
+                    <tr>
+                        <td>catch</td>
+                        <td>Catches exceptions thrown in a <code>try</code> block.</td>
+                    </tr>
+                    <tr>
+                        <td>namespace</td>
+                        <td>Defines a namespace for organizing code and avoiding name conflicts.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Identifiers Section -->
+        <div class="subtopics" id="topic3">
+            <h3>Identifiers</h3>
+            <p>An identifier is simply a name in PHP. Identifiers are used to define variables, functions, constants, and classes with user-defined names.<br>
+                The rules for naming identifiers in PHP are:<br>
+                1. Only alphabet characters, digits, and underscores are permitted.<br>
+                2. The first character must be an alphabet or underscore. For example, <code>$abc</code>, <code>$_abc</code> are valid identifier names, but <code>$4abc</code>, <code>S'abo</code> etc. are not valid identifier names.<br>
+                3. The name cannot have any special character besides underscore. For example, <code>$a_b</code> is valid, but <code>$a'b</code> is not a valid identifier name.<br>
+                4. Identifiers must not contain white space. If you need space in identifier name, you must use an underscore. For example, <code>$basic_salary</code> is a valid identifier name.<br>
+                5. The first character of an identifier must be either an ASCII letter (uppercase or lowercase), the underscore character, or any of the characters between ASCII 0x7F and ASCII 0xFF. After the initial character, these characters and the digits 0-9 are valid.
+            </p>
+        </div>
+
+        <!-- Variables Section -->
+        <div class="subtopics" id="topic4">
+            <h3>Variables</h3>
+            <p>A variable is a user-defined name given to a storage area that may be used to store a data value. A variable carries a value with it. Variables are quantities whose value can vary during the execution of the program; it is a way to access the computer's memory. Variables act as containers that store information for later use in your scripts.<br>
+                The various rules to define the variables in PHP are:<br>
+                1. All variables in PHP are denoted with a leading dollar sign ($). For example, <code>$name</code> is a valid variable name, but <code>name</code> is not a valid variable name in PHP.<br>
+                2. Variables in PHP are case-sensitive, which means <code>$name</code> and <code>$Name</code> are treated as different variables.<br>
+                3. It can contain only alphanumeric characters and underscores (A-Z, a-z, 0-9, and underscore).<br>
+                4. The first letter after $ of the variable name must be a letter or an underscore. For example, <code>$name</code>, <code>$_name</code> are valid variable names, but <code>$4name</code> is not a valid variable name.<br>
+                5. Variable names must not be keywords. Although it is not officially illegal to use keywords as variable names, it's conventionally considered bad practice. For example, <code>$if</code>, <code>$break</code>, <code>$final</code> etc. contain keywords and are valid variable names, but it is not good practice for programmers to take them as variable names.<br>
+                6. Variable names must not contain white spaces. If you need space in variable names, you must use an underscore. For example, <code>$basic_salary</code> is a valid identifier name but <code>$basic salary</code> is not.
+            </p>
+        </div>
+
+        <!-- Constants Section -->
+        <div class="subtopics" id="topic5">
+            <h3>Constants</h3>
+            <p>Constants are like variables but once defined, their values cannot be changed during the program’s execution. They are defined using the <code>define()</code> function or the <code>const</code> keyword.<br>
+                The rules for defining constants include:<br>
+                1. Constant names do not start with a dollar sign ($).<br>
+                2. Constants are case-sensitive by default, though they can be made case-insensitive.<br>
+                3. Constants cannot be redefined or undefined once set.
+            </p>
+        </div>
+
+        <!-- Data Types Section -->
+        <div class="subtopics" id="topic6">
+            <h3>Data Types</h3>
+            <p>PHP supports several data types to hold different kinds of information:<br>
+                1. <strong>String:</strong> A sequence of characters enclosed in single or double quotes, e.g., <code>"Hello, World!"</code>.<br>
+                2. <strong>Integer:</strong> A non-decimal number, e.g., <code>123</code>.<br>
+                3. <strong>Float:</strong> A number with a decimal point, e.g., <code>3.14</code>.<br>
+                4. <strong>Boolean:</strong> Represents <code>true</code> or <code>false</code>.<br>
+                5. <strong>Array:</strong> A collection of values, e.g., <code>array("apple", "banana", "cherry")</code>.<br>
+                6. <strong>Object:</strong> An instance of a class that may contain both data and functions.<br>
+                7. <strong>NULL:</strong> A variable with no value assigned.
+            </p>
+        </div>
+        <nav>
+            <nav>
+                <a href="#topic1">Tokens</a>
+                <a href="#topic2">Keywords</a>
+                <a href="#topic3">Identifiers</a>
+                <a href="#topic4">Variables</a>
+                <a href="#topic5">Constants</a>
+                <a href="#topic6">Data Types</a>
+            </nav>
+            
+        </nav>
+    </div>
+
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Php</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Connecting Database</h1>
+    </header>
+
+    <div class="container">
+        <h2>MySQL Database</h2>
+        <p>With PHP, you can connect to and manipulate databases.
+<br><br>
+            MySQL is the most popular database system used with PHP<br>
+            The data in a MySQL database are stored in tables. A table is a collection of related data, and it consists of columns and rows.
+<br>
+            Databases are useful for storing information categorically. </p> 
+      
+        <div class="subtopics"  id="topic1">
+            <h3>Database Queries</h3>
+            <p>
+                query is a question or a request.
+<br>
+                We can query a database for specific information and have a recordset returned.
+                <br>
+                Look at the following query (using standard SQL):
+                <br>
+                <code class="code1"><pre>
+                SELECT LastName FROM Employees
+            </pre></code>
+                <br>
+                The query above selects all the data in the "LastName" column from the "Employees" table.
+            </p>
+        </div>
+
+        <div class="subtopics"id="topic2">
+            <h3>Connection to MySQL</h3>
+            <p>Before we can access data in the MySQL database, we need to be able to connect to the server:</p>
+            <code class="code1">
+                <pre>
+                &lt;?php
+                $servername = "localhost";
+                $username = "username";
+                $password = "password";
+                
+                // Create connection
+                $conn = new mysqli($servername, $username, $password);
+                
+                // Check connection
+                if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+                }
+                echo "Connected successfully";
+                ?> 
+            </pre>
+            </code>
+        </div>
+
+        <div class="subtopics" id="topic3">
+            <h3>Create a mysqli database in php</h3>
+            <p>A database consists of one or more tables.
+<br>
+                You will need special CREATE privileges to create or to delete a MySQL database.
+            <br>The CREATE DATABASE statement is used to create a database in MySQL.
+<br>
+            The following examples create a database named "myDB":
+        </p>
+        <code class="code1">
+            <pre>
+                &lt;?php
+                $servername = "localhost";
+                $username = "username";
+                $password = "password";
+                
+                // Create connection
+                $conn = new mysqli($servername, $username, $password);
+                // Check connection
+                if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+                }
+                
+                // Create database
+                $sql = "CREATE DATABASE myDB";
+                if ($conn->query($sql) === TRUE) {
+                  echo "Database created successfully";
+                } else {
+                  echo "Error creating database: " . $conn->error;
+                }
+                
+                $conn->close();
+                ?>
+                
+            </pre>
+        </code>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>Creating a Table</h3>
+            <p>A database table has its own unique name and consists of columns and rows.
+                <br>
+                The CREATE TABLE statement is used to create a table in MySQL.
+                <br>We will create a table named "MyGuests", with five columns: "id", "firstname", "lastname", "email" and "reg_date":
+                <code class="code1">
+
+<pre>
+    CREATE TABLE MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+</pre>
+</code>
+            </p>
+        </div>
+        <div class="subtopics"  id="topic5">
+            <h3>Insert a record into Table</h3>
+            <p>
+                After a database and a table have been created, we can start adding data in them.
+<br>
+                Here are some syntax rules to follow:
+              <br>  
+                1.The SQL query must be quoted in PHP<br>
+                2.String values inside the SQL query must be quoted<br>
+                3.Numeric values must not be quoted<br>
+                4.The word NULL must not be quoted<br>
+                5.The INSERT INTO statement is used to add new records to a MySQL table:
+            <code class="code1">
+                <h3>Syntax:</h3>
+            <pre>
+                INSERT INTO table_name (column1, column2, column3,...)
+                VALUES (value1, value2, value3,...)
+            </pre>
+            </code>
+            In the previous chapter we created an empty table named "MyGuests" with five columns: "id", "firstname", "lastname", "email" and "reg_date". Now, let us fill the table with data.
+            <br>
+            The following examples add a new record to the "MyGuests" table:
+            <code class="code1">
+            <pre>
+                &lt;?php
+                $servername = "localhost";
+                $username = "username";
+                $password = "password";
+                $dbname = "myDB";
+                
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+                }
+                
+                $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+                VALUES ('John', 'Doe', 'john@example.com')";
+                
+                if ($conn->query($sql) === TRUE) {
+                  echo "New record created successfully";
+                } else {
+                  echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+                
+                $conn->close();
+                ?>
+                  </pre>
+                </code>
+                
+            </p>
+        </div>
+        <div class="subtopics"  id="topic6">
+            <h3>Fetching data from Table</h3>
+            <p>The SELECT statement is used to select data from one or more tables:
+<code class="code1">
+    <pre>SELECT column_name(s) FROM table_name</pre>
+</code> 
+                or we can use the * character to select ALL columns from a table:
+               <code class="code1">
+                <pre>SELECT * FROM table_name</pre>
+            </code> 
+            The following example selects the id, firstname and lastname columns from the MyGuests table and displays it on the page:
+                </p>
+<code class="code1">
+    <pre><?php
+        $servername = "localhost";
+        $username = "username";
+        $password = "password";
+        $dbname = "myDB";
+        
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+        
+        $sql = "SELECT id, firstname, lastname FROM MyGuests";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+          }
+        } else {
+          echo "0 results";
+        }
+        $conn->close();
+        ?> 
+</pre></code>
+        </div>
+        <div class="subtopics"  id="topic7">
+            <h3>Deleting data from table</h3>
+            <p>
+                The DELETE statement is used to delete records from a table:
+<code class="code1">
+    <pre>DELETE FROM table_name
+        WHERE some_column = some_value;
+    </pre></code>
+<code class="code1">
+    <pre><?php
+        $servername = "localhost";
+        $username = "username";
+        $password = "password";
+        $dbname = "myDB";
+        
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+        
+        // sql to delete a record
+        $sql = "DELETE FROM MyGuests WHERE id=3";
+        
+        if ($conn->query($sql) === TRUE) {
+          echo "Record deleted successfully";
+        } else {
+          echo "Error deleting record: " . $conn->error;
+        }
+        
+        $conn->close();
+        ?>
+        
+    </pre>
+</code>
+            </p>
+        </div>
+
+ 
+        <nav>
+          <a href="#topic1">Database Queries</a>
+          <a href="#topic2">Connection to MySQL</a>
+          <a href="#topic3">Create a MySQL Database in PHP</a>
+          <a href="#topic4">Creating a Table</a>
+      </nav>
+    </div>
+    
+
+    
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>

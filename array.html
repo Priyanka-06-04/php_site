@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in PHP</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Arrays in PHP</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>Arrays are used to store multiple elements under a single variable. This helps reduce the effort of creating different variables for each piece of data. For example, if we want to store five names, we could create five separate variables. However, if the number of names increases to one hundred, managing those variables would be cumbersome. In such cases, arrays provide a convenient way to store and manage multiple elements efficiently.</p>
+
+        <div class="subtopics" id="topic1">
+            <h3>Anatomy of an Array</h3>
+            <p>The basic idea of an array is to group multiple items under a single variable. Each item stored in an array is called an array element and is associated with an index that starts from 0. The first element is stored at index 0, the second at index 1, and so forth.</p>
+            <p><strong>Example:</strong></p>
+            <div class="code"><code class="code1"><pre>
+$fruits = array("Apple", "Banana", "Cherry");
+echo $fruits[0]; // Output: Apple
+            </pre></code></div>
+        </div>
+
+        <div class="subtopics" id="topic2">
+            <h3>Types of Arrays</h3>
+            <p>In PHP, there are three main types of arrays:</p>
+            <ul>
+                <li><strong>1. Indexed Arrays:</strong> These are arrays with numeric indexes. The index is automatically assigned, starting from 0. You can also manually assign indexes.</li>
+                <div class="code"><code class="code1"><pre>
+$colors = array("Red", "Green", "Blue");
+echo $colors[1]; // Output: Green
+
+// Manually assigning indexes
+$manualIndex = array(1 => "One", 2 => "Two", 3 => "Three");
+echo $manualIndex[2]; // Output: Two
+                </pre></code></div>
+
+               <br> <li><strong>2. Associative Arrays:</strong> These arrays use named keys that you assign to them instead of numeric indexes. This allows you to access values using descriptive keys.</li>
+                <div class="code"><code class="code1"><pre>
+$ages = array("Alice" => 25, "Bob" => 30, "Charlie" => 35);
+echo $ages["Charlie"]; // Output: 35
+                </pre></code></div>
+
+               <br> <li><strong>3. Multidimensional Arrays:</strong> These are arrays containing one or more arrays. They allow you to store data in a matrix format, making it easier to manage related data.</li>
+                <div class="code"><code class="code1"><pre>
+$students = array(
+    array("Alice", 25),
+    array("Bob", 30),
+    array("Charlie", 35)
+);
+echo $students[2][0]; // Output: Charlie
+                </pre></code></div>
+            </ul>
+        </div>
+
+        <div class="subtopics" id="topic3">
+            <h3>Common Array Functions</h3>
+            <p>PHP provides a variety of built-in functions to work with arrays. Here are some commonly used functions:</p>
+            <ul>
+                <li><code>count()</code>: Counts the number of elements in an array.</li>
+                <div class="code"><code class="code1"><pre>
+$numbers = array(1, 2, 3, 4, 5);
+echo count($numbers); // Output: 5
+                </pre></code></div>
+
+              <br>  <li><code>array_push()</code>: Adds one or more elements to the end of an array.</li>
+                <div class="code"><code class="code1"><pre>
+array_push($fruits, "Mango");
+print_r($fruits); // Output: Array ( [0] => Apple [1] => Banana [2] => Cherry [3] => Mango )
+                </pre></code></div>
+
+              <br>  <li><code>array_pop()</code>: Removes the last element from an array and returns it.</li>
+                <div class="code"><code class="code1"><pre>
+$lastFruit = array_pop($fruits);
+echo $lastFruit; // Output: Mango
+print_r($fruits); // Output: Array ( [0] => Apple [1] => Banana [2] => Cherry )
+                </pre></code></div>
+
+               <br> <li><code>array_keys()</code>: Returns all the keys of an associative array.</li>
+                <div class="code"><code class="code1"><pre>
+$keys = array_keys($ages);
+print_r($keys); // Output: Array ( [0] => Alice [1] => Bob [2] => Charlie )
+                </pre></code></div>
+
+               <br> <li><code>in_array()</code>: Checks if a value exists in an array.</li>
+                <div class="code"><code class="code1"><pre>
+if (in_array("Alice", $keys)) {
+    echo "Alice is in the array.";
+} else {
+    echo "Alice is not in the array.";
+}
+// Output: Alice is in the array.
+                </pre></code></div>
+            </ul>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>Iterating Through Arrays</h3>
+            <p>You can iterate through arrays using loops. The <code>foreach</code> loop is particularly useful for working with arrays:</p>
+            <div class="code"><code class="code1"><pre>
+$fruits = array("Apple", "Banana", "Cherry");
+foreach ($fruits as $fruit) {
+    echo $fruit . " ";
+}
+// Output: Apple Banana Cherry
+            </pre></code></div>
+
+            <p>You can also iterate through associative arrays using keys:</p>
+            <div class="code"><code class="code1"><pre>
+foreach ($ages as $name => $age) {
+    echo "$name is $age years old.<br>";
+}
+// Output: Alice is 25 years old.
+//         Bob is 30 years old.
+//         Charlie is 35 years old.
+            </pre></code></div>
+        </div>
+        <nav>
+            <a href="#topic1">Anatomy of an Array</a>
+            <a href="#topic2">Types of Arrays</a>
+            <a href="#topic3">Common Array Functions</a>
+            <a href="#topic4">Iterating Through Arrays</a>
+        </nav>
+        
+    </div>
+    
+
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>

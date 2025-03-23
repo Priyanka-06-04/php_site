@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <style>
+        html, body {
+    overflow: hidden; 
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px; 
+            box-shadow: 0 4px 2px -2px gray;
+            z-index: 1000;
+            /* overflow: hidden; */
+        }
+
+        .navbar .intro {
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+        }
+
+        .navbar img {
+            height: 60px;
+            border-radius: 100%;
+            vertical-align: middle;
+            background-color: whitesmoke;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+            margin-top: 8%;
+            height: 100vh;
+        }
+
+        .left-frame {
+            width: 30%;
+            background-color: #f4f4f4;
+            height: 100%;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-frame {
+            width: 70%;
+            padding: 20px;
+        }
+
+        iframe {
+            border: none;
+        }
+
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .fade-in {
+            animation: fade-in 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .theme-toggle-btn {
+            padding: 8px 8px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 100%;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .theme-toggle-btn img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Dark Theme CSS */
+        .dark-theme {
+            background-color: #d4e4eb;
+            color: #fff;
+        }
+
+        .dark-theme .navbar {
+            background-color: #424a56;
+        }
+
+        .dark-theme .left-frame {
+            background-color:  #1d2127;
+            color:white;
+        }
+
+        .dark-theme .footer {
+            background-color: #424a56;
+        }
+
+        .dark-theme .theme-toggle-btn {
+            background-color: #444;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="php.jpeg" alt="Logo">
+        <span class="intro"></span>
+        <button class="theme-toggle-btn" onclick="toggleTheme()">
+            <img id="theme-icon" src="sun.jpeg" alt="Light Theme Icon">
+        </button>
+    </div>
+
+    <div class="main">
+        <iframe src="sidebar.html" title="Left Frame" width="30%" name="leftframe" class="left-frame" aria-label="Content Navigation"></iframe>
+        <iframe src="first.html" title="Right Frame" width="70%" name="rightframe" class="right-frame" aria-label="Main Content"></iframe>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Java Programming Language. All rights reserved.</p>
+    </div>
+
+    <script>
+        const introText = [
+            "Welcome to PHP Programming!",
+            "PHP stands for Hypertext Preprocessor.",
+            "PHP is a server-side scripting language.",
+            "It's widely used for web development.",
+            "With PHP, you can create dynamic websites.",
+            "PHP works well with databases like MySQL.",
+            "PHP syntax is easy to learn and use."
+        ];
+
+        let currentIndex = 0;
+        const introElement = document.querySelector('.intro');
+
+        function showIntroText() {
+            introElement.classList.remove('fade-in');
+            introElement.textContent = introText[currentIndex];
+            introElement.classList.add('fade-in');
+            currentIndex = (currentIndex + 1) % introText.length;
+        }
+        showIntroText();
+        setInterval(showIntroText, 3000);
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const icon = document.getElementById('theme-icon');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.src = 'moon.png'; // Change to a moon icon for dark theme
+                icon.alt = 'Dark Theme Icon';
+            } else {
+                icon.src = 'sun.jpeg'; // Change to a sun icon for light theme
+                icon.alt = 'Light Theme Icon';
+            }
+        }
+    </script>
+</body>
+</html>

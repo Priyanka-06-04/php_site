@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP String Manipulation</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <header>
+        <h1>String Manipulation</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>
+            Strings are the sequence of characters that can be treated as a unit that are assigned to a variable. Nowadays, they are formed by a list of characters, which is essential for creating, handling, searching, deleting, replacing, and processing text. Therefore, string handling is one of the most important parts of PHP programming, as most information from users is in the form of text. <br> String manipulation is a critical aspect of programming that involves modifying, analyzing, and working with text. In PHP, there are numerous built-in functions that make string manipulation efficient and straightforward. Whether you need to concatenate strings, find substrings, or alter text formatting, PHP provides robust tools to accomplish these tasks.
+        </p>
+
+        <div class="subtopics" id="topic1">
+            <h3>Types of Strings in PHP</h3>
+            <p>
+                In PHP, there are four primary types of strings:
+            </p>
+            <ul>
+                <li><strong>Single-quoted Strings:</strong> Strings enclosed in single quotes (e.g., 'Hello World!'). Variables within single quotes will not be parsed. Special characters such as \n (newline) will be treated as plain text.</li>
+                <li><strong>Double-quoted Strings:</strong> Strings enclosed in double quotes (e.g., "Hello World!"). Variables will be parsed, and special characters (like \n) will be interpreted. This allows for more dynamic string content.</li>
+                <li><strong>Heredoc:</strong> A syntax for defining strings that can span multiple lines and allows variable parsing (e.g., <code>Heredoc</code> syntax starts with <code><<<</code> followed by an identifier).</li>
+                <li><strong>Nowdoc:</strong> Similar to Heredoc but treats the content as a single-quoted string, meaning no variable parsing (e.g., <code>Nowdoc</code> syntax also starts with <code><<<</code> but uses single quotes).</li>
+            </ul>
+            <p>
+                <strong>Example Use Case:</strong> Displaying strings with and without variable parsing.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$greeting = 'Hello';
+$name = 'John';
+
+// Single-quoted String
+echo '$greeting $name'; // Outputs: $greeting $name
+
+// Double-quoted String
+echo "$greeting $name"; // Outputs: Hello John
+
+// Heredoc example
+$heredoc = &lt;&lt;&lt;EOD
+This is a Heredoc string.
+It can span multiple lines and includes variables: $greeting $name.
+EOD;
+echo $heredoc;
+
+// Nowdoc example
+$nowdoc = &lt;&lt;&lt;'EOD'
+This is a Nowdoc string.
+It does not parse variables: $greeting $name.
+EOD;
+echo $nowdoc;
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic2">
+            <h3>String Concatenation</h3>
+            <p>
+                Concatenation is the process of joining two or more strings together. In PHP, the dot (.) operator is used for this purpose. This allows developers to build dynamic strings easily by combining variables and string literals.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Building a welcome message for a user.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$user = "Alice";
+$welcomeMessage = "Welcome to the site, " . $user . "!";
+echo $welcomeMessage; // Outputs: Welcome to the site, Alice!
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic3">
+            <h3>String Length - strlen()</h3>
+            <p>
+                The <code>strlen()</code> function returns the length of a string, which is useful for validation, formatting, and processing text data. It counts all characters, including spaces and punctuation.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Validating a username for a minimum length requirement.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$username = "phpCoder";
+if (strlen($username) >= 6) {
+    echo "Username is valid.";
+} else {
+    echo "Username must be at least 6 characters.";
+}
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>String Position - strpos()</h3>
+            <p>
+                The <code>strpos()</code> function finds the position of the first occurrence of a substring within a string. It returns the index of the substring or FALSE if not found, allowing developers to check for specific text within a string.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Checking if a phrase exists in a sentence.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$sentence = "The quick brown fox jumps over the lazy dog.";
+$position = strpos($sentence, "fox");
+if ($position !== false) {
+    echo "Found 'fox' at position: " . $position; // Outputs: Found 'fox' at position: 16
+} else {
+    echo "Not found.";
+}
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic5">
+            <h3>String Replacement - str_replace()</h3>
+            <p>
+                The <code>str_replace()</code> function replaces all occurrences of a substring within a string with a new value. This is particularly useful for sanitizing input or modifying text dynamically.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Updating an outdated URL in a string.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$text = "Visit our website at http://example.com";
+$newText = str_replace("http://example.com", "https://newsite.com", $text);
+echo $newText; // Outputs: Visit our website at https://newsite.com
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic6">
+            <h3>String Trimming - trim()</h3>
+            <p>
+                The <code>trim()</code> function removes whitespace and other predefined characters from the beginning and end of a string. This is useful for cleaning user input before processing.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Cleaning user input from a form submission.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$input = "   Hello World!   ";
+$cleanInput = trim($input);
+echo $cleanInput; // Outputs: Hello World!
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic7">
+            <h3>String Uppercase - strtoupper()</h3>
+            <p>
+                The <code>strtoupper()</code> function converts a string to uppercase. This is often used for formatting text or when case insensitivity is needed during comparisons.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Formatting a user's name for display.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$userName = "alice smith";
+echo strtoupper($userName); // Outputs: ALICE SMITH
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic8">
+            <h3>String Substring - substr()</h3>
+            <p>
+                The <code>substr()</code> function returns a portion of a string specified by the starting index and length. It is helpful for extracting parts of strings for processing or displaying.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Extracting the domain name from a URL.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$url = "https://www.example.com/page";
+$domain = substr($url, 8, 15); // Extract starting from index 8, length 15
+echo $domain; // Outputs: www.example.com
+?&gt;</pre>
+                </code>
+            </div>
+        </div>
+
+        <div class="subtopics" id="topic9">
+            <h3>String Split - explode()</h3>
+            <p>
+                The <code>explode()</code> function splits a string into an array based on a delimiter. This is particularly useful for parsing structured data like CSV or user input.
+            </p>
+            <p>
+                <strong>Example Use Case:</strong> Converting a list of products into an array.
+            </p>
+            <div class="code">
+                <code class="code1">
+                    <pre>&lt;?php
+$products = "apple,banana,orange";
+$productArray = explode(",", $products);
+print_r($productArray); // Outputs: Array ( [0] => apple [1] => banana [2] => orange )
+?&gt;</pre>
+                </code>
+            </div>
+            <nav>
+                <a href="#topic1">Types of Strings</a>
+                <a href="#topic2">String Concatenation</a>
+                <a href="#topic3">strlen()</a>
+                <a href="#topic4">strpos()</a>
+                <a href="#topic5">str_replace()</a>
+                <a href="#topic6">trim()</a>
+                <a href="#topic7">strtoupper()</a>
+                <a href="#topic8">substr()</a>
+                <a href="#topic9">explode()</a>
+            </nav>
+        </div>
+       
+    </div>
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+
+</html>

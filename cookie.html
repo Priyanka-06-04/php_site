@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Php</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Maintaining User State</h1>
+    </header>
+
+    <div class="container">
+        <h2>Using cookies in php</h2>
+        <p>A cookie is often used to identify a user. A cookie is a small file that the server embeds on the user's computer. Each time the same computer requests a page with a browser, it will send the cookie too. With PHP, you can both create and retrieve cookie values.</p> 
+      
+        <div class="subtopics"  id="topic1">
+            <h3>Create a cookies & Read a cookie</h3>
+            <p>A cookie is created with the setcookie() function.</p>
+<code class="code1">
+    <h3>Syntax:</h3><pre>
+    setcookie(name, value, expire, path, domain, secure, httponly);
+</pre></code>
+       <p> Only the name parameter is required. All other parameters are optional. <br>
+        The following example creates a cookie named "user" with the value "John Doe". The cookie will expire after 30 days (86400 * 30). The "/" means that the cookie is available in entire website (otherwise, select the directory you prefer).
+<br>
+        We then retrieve the value of the cookie "user" (using the global variable $_COOKIE). We also use the isset() function to find out if the cookie is set:</p>
+        <code class="code1">
+<pre> &lt;?php
+    $cookie_name = "user";
+    $cookie_value = "John Doe";
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    ?>
+    &lt;html>
+    &lt;body>
+    
+    &lt;?php
+    if(!isset($_COOKIE[$cookie_name])) {
+      echo "Cookie named '" . $cookie_name . "' is not set!";
+    } else {
+      echo "Cookie '" . $cookie_name . "' is set!&lt;br>";
+      echo "Value is: " . $_COOKIE[$cookie_name];
+    }
+    ?>
+    &lt;/body>
+    &lt;/html>
+
+               
+        </pre></code>
+        </div>
+
+        <div class="subtopics"id="topic2">
+            <h3>Modify a Cookie</h3>
+            <p>To modify a cookie, just set (again) the cookie using the setcookie() function:</p>
+            <code class="code1">
+<pre>
+    &lt;?php
+    $cookie_name = "user";
+    $cookie_value = "Alex Porter";
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+    ?>
+    &lt;html>
+    &lt;body>
+    
+    &lt;?php
+    if(!isset($_COOKIE[$cookie_name])) {
+      echo "Cookie named '" . $cookie_name . "' is not set!";
+    } else {
+      echo "Cookie '" . $cookie_name . "' is set!&lt;br>";
+      echo "Value is: " . $_COOKIE[$cookie_name];
+    }
+    ?>
+    &lt;body>
+    &lt;html>
+                
+            </pre></code>
+        </div>
+
+        <div class="subtopics" id="topic3">
+            <h3>Delete a Cookie</h3>
+            <p>
+                To delete a cookie, use the setcookie() function with an expiration date in the past:
+            </p>
+            <code class="code1">
+    <pre> &lt;?php
+        // set the expiration date to one hour ago
+        setcookie("user", "", time() - 3600);
+        ?>
+        &lt;html>
+        &lt;body>
+        
+        &lt;?php
+        echo "Cookie 'user' is deleted.";
+        ?>
+        
+        &lt;/body>
+        &lt;/html>
+    </pre>
+               </code>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>Session</h3>
+        <p>
+        A session is a way to store information (in variables) to be used across multiple pages.
+<br>
+        Unlike a cookie, the information is not stored on the users computer.</p>
+        <h2>What is a PHP Session?</h2>
+        <p>
+            When you work with an application, you open it, do some changes, and then you close it. This is much like a Session. The computer knows who you are. It knows when you start the application and when you end. But on the internet there is one problem: the web server does not know who you are or what you do, because the HTTP address doesn't maintain state.
+<br>
+            Session variables solve this problem by storing user information to be used across multiple pages (e.g. username, favorite color, etc). By default, session variables last until the user closes the browser.
+       <br>     
+            So; Session variables hold information about one single user, and are available to all pages in one application.</p>
+            <code class="code1">
+<pre>&lt;?php
+    // Start the session
+    session_start();
+    ?>
+    &lt;!DOCTYPE html>
+    &lt;html>
+    &lt;body>
+    
+    &lt;?php
+    // Set session variables
+    $_SESSION["favcolor"] = "green";
+    $_SESSION["favanimal"] = "cat";
+    echo "Session variables are set.";
+    ?> 
+    &lt;/body>
+    &lt;/html>
+                    
+                </pre>
+            </code>           
+        </div>
+        <div class="subtopics" id="topic5">
+            <h3>Get PHP Session Variable Values</h3>
+            <p>
+                Next, we create another page called "demo_session2.php". From this page, we will access the session information we set on the first page ("demo_session1.php").
+<br>
+                Notice that session variables are not passed individually to each new page, instead they are retrieved from the session we open at the beginning of each page (session_start()).
+<br>    
+                Also notice that all session variable values are stored in the global $_SESSION variable:</p>
+                <code class="code1">
+<pre> &lt;?php
+    session_start();
+    ?>
+    &lt;!DOCTYPE html>
+    &lt;html>
+    &lt;body>
+    
+    &lt;?php
+    // Echo session variables that were set on previous page
+    echo "Favorite color is " . $_SESSION["favcolor"] . ".&lt;br>";
+    echo "Favorite animal is " . $_SESSION["favanimal"] . ".";
+    ?>
+    
+    &lt;/body>
+    &lt;/html>
+    
+                       
+                    </pre>
+                </code>
+        </div>
+        <div class="subtopics"  id="topic6">
+            <h3>Modify a PHP Session Variable</h3>
+            <p>To change a session variable, just overwrite it:</p>
+            <code class="code1">
+<pre>&lt;?php
+    session_start();
+    ?>
+    &lt;!DOCTYPE html>
+    &lt;html>
+    &lt;body>
+    
+    &lt;?php
+    // to change a session variable, just overwrite it
+    $_SESSION["favcolor"] = "yellow";
+    print_r($_SESSION);
+    ?>
+    
+    &lt;/body>
+    &lt;/html>
+                
+            </pre>
+            </code>
+        </div>
+        <div class="subtopics"  id="topic7">
+            <h3>Destroy a PHP Session</h3>
+            <p>To remove all global session variables and destroy the session, use session_unset() and session_destroy():</p>
+            <code class="code1">
+    <pre>
+        &lt;?php
+        session_start();
+        ?>
+        &lt;!DOCTYPE html>
+        &lt;html>
+        &lt;body>
+        
+        &lt;?php
+        // remove all session variables
+        session_unset();
+        
+        // destroy the session
+        session_destroy();
+        ?>
+        
+        &lt;/body>
+        &lt;/html>
+                
+                    
+                </pre>
+            </code>
+        </div>
+
+ 
+        <nav>
+            <a href="#topic1">Create & Read a Cookie</a>
+            <a href="#topic2">Modify a Cookie</a>
+            <a href="#topic3">Delete a Cookie</a>
+            <a href="#topic4">Session</a>
+            <a href="#topic5">Get PHP Session Variable Values</a>
+            <a href="#topic6">Modify a PHP Session Variable</a>
+            <a href="#topic7">Destroy a PHP Session</a>
+        </nav>
+        
+    </div>
+
+    
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>

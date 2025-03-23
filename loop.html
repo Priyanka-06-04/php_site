@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Structures in PHP</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Loop Structures</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>In computer programming, loops are constructs that repeat a sequence of instructions until a certain condition is met or for a specific number of iterations. They are essential for tasks that require repeated actions, such as processing items in a list, performing calculations, or managing iterations in algorithms. In PHP, there are four primary types of looping statements:</p>
+        <ul>
+            <li>1. <strong>for loop</strong>: Used when the number of iterations is known beforehand.</li>
+            <li>2. <strong>while loop</strong>: Used when the number of iterations is not known and depends on a condition.</li>
+            <li>3. <strong>do...while loop</strong>: Similar to the while loop but guarantees at least one execution of the code block.</li>
+            <li>4. <strong>foreach loop</strong>: Specifically designed for iterating over arrays.</li>
+        </ul>
+
+        <div class="subtopics" id="topic1">
+            <h3>1. for Loop</h3>
+            <p>The <span>for</span> loop is ideal when you know how many times you want to execute a statement or block of statements. It consists of three parts: initialization, condition, and increment/decrement.</p>
+            <p><strong>Syntax:</strong></p>
+            <pre><code class="code1">
+for (initialization; condition; increment/decrement) {
+    // code to be executed
+}
+</code></pre>
+            <p><strong>Example:</strong> Printing numbers from 1 to 5.</p>
+            <div class="code"><code class="code1"><pre>
+for ($i = 1; $i <= 5; $i++) {
+    echo "Counting: $i<br>";
+}
+            </pre></code></div>
+            <p><strong>Common Use Cases:</strong></p>
+            <ul>
+                <li>When you need to execute a block of code a specific number of times.</li>
+                <li>When iterating through numerical sequences or arrays using an index.</li>
+            </ul>
+        </div>
+
+        <div class="subtopics" id="topic2">
+            <h3>2. while Loop</h3>
+            <p>The <span>while</span> loop executes a block of code as long as the specified condition evaluates to true. It checks the condition before executing the loop body, making it suitable for situations where the number of iterations is not known beforehand.</p>
+            <p><strong>Syntax:</strong></p>
+            <pre><code class="code1">
+while (condition) {
+    // code to be executed
+}
+</code></pre>
+            <p><strong>Example:</strong> Counting down from 5 to 1 using a while loop.</p>
+            <div class="code"><code class="code1"><pre>
+$i = 5;
+while ($i > 0) {
+    echo "Countdown: $i<br>";
+    $i--;
+}
+            </pre></code></div>
+            <p><strong>Common Use Cases:</strong></p>
+            <ul>
+                <li>When the number of iterations is unknown, but depends on a condition.</li>
+                <li>When waiting for user input or processing data until a certain condition is met.</li>
+            </ul>
+        </div>
+
+        <div class="subtopics" id="topic3">
+            <h3>3. do...while Loop</h3>
+            <p>The <span>do...while</span> loop is similar to the while loop, but it guarantees that the code block will be executed at least once before the condition is tested. This makes it useful for scenarios where you want to ensure the code runs before checking a condition.</p>
+            <p><strong>Syntax:</strong></p>
+            <pre><class class="code1">
+do {
+    // code to be executed
+} while (condition);
+</class></pre>
+            <p><strong>Example:</strong> Asking for a valid number until a positive number is entered.</p>
+            <div class="code"><code class="code1"><pre>
+do {
+    echo "Enter a number greater than zero:<br>";
+    $number = 5; // Assume user input is 5 for demonstration
+} while ($number <= 0);
+            </pre></code></div>
+            <p><strong>Common Use Cases:</strong></p>
+            <ul>
+                <li>When you need the code to execute at least once regardless of the condition.</li>
+                <li>For user interaction scenarios, such as prompting for input until valid input is provided.</li>
+            </ul>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>4. foreach Loop</h3>
+            <p>The <span>foreach</span> loop is specifically designed for iterating over arrays. It simplifies the syntax needed to loop through elements of an array, making it easier to read and maintain.</p>
+            <p><strong>Syntax:</strong></p>
+            <pre><code class="code1">
+foreach ($array as $value) {
+    // code to be executed
+}
+</code></pre>
+            <p><strong>Example:</strong> Iterating over an array of colors.</p>
+            <div class="code"><code class="code1"><pre>
+$colors = array("Red", "Green", "Blue");
+foreach ($colors as $color) {
+    echo "Color: $color<br>";
+}
+            </pre></code></div>
+            <p><strong>Common Use Cases:</strong></p>
+            <ul>
+                <li>When working with arrays to easily access each element.</li>
+                <li>When you need to perform operations on each item in a collection or list.</li>
+            </ul>
+        </div>
+
+        <nav>
+            <h3>Navigation</h3>
+            <a href="#topic1">for Loop</a>
+            <a href="#topic2">while Loop</a>
+            <a href="#topic3">do...while Loop</a>
+            <a href="#topic4">foreach Loop</a>
+        </nav>
+    </div>
+
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>

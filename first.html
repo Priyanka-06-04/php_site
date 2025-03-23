@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Applications Overview</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        .img {
+        width: 500px;
+        height: 300px;
+        margin: 0 auto; 
+        display: block; 
+        border-radius: 8px;
+        border: 2px solid #333;
+        padding: 5px;
+        background-color: #222;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        object-fit: cover;
+    }
+        </style>
+</head>
+<body>
+    <header>
+        <h1>INTRODUCTION</h1>
+    </header>
+
+    <div class="container">
+        
+        <h2>Overview of Web Applications</h2>
+        <img class= "img" src="intro.png" alt="">
+        <p>A web application is a software application that runs on a web server, unlike computer-based software programs that run locally on the operating system of the device. Web applications are accessed by the user through a web browser with an active network connection.</p>
+        
+      
+        <div class="subtopics"  id="client-side-server-side">
+            <h3>1. Client-Side & Server-Side</h3>
+            <p>The client-side refers to everything in a web application that happens on the browser, such as user interface and interactions. The server-side, on the other hand, refers to the backend, where the server processes user requests, interacts with databases, and sends responses back to the client.</p>
+        </div>
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Client-Side</th>
+                    <th>Server-Side</th>
+                </tr>
+                <tr>
+                    <td>1.Executed on the user's browser (frontend).</td>
+                    <td>1.Executed on the server (backend).</td>
+                </tr>
+                <tr>
+                    <td>2.Used for creating interactive and dynamic elements on the webpage.</td>
+                    <td>2.Used for processing data, interacting with databases, and controlling the application’s business logic.</td>
+                </tr>
+                <tr>
+                    <td>3.Languages include HTML, CSS, JavaScript, etc.</td>
+                    <td>3.Languages include PHP, Node.js, Python, Ruby, etc.</td>
+                </tr>
+                <tr>
+                    <td>4.Examples: Form validation, animations, user interactions.</td>
+                    <td>4.Examples: User authentication, database operations, API interactions.</td>
+                </tr>
+                <tr>
+                    <td>5.More accessible and faster since it doesn’t require server processing.</td>
+                    <td>5.Handles complex logic and operations securely on the server-side.</td>
+                </tr>
+            </table>
+        </div>
+        
+
+        <div class="subtopics"id="web-servers">
+            <h3>2. Web Servers</h3>
+            <p>Web servers are software or hardware that store and manage websites, delivering web pages and other web-based content to end-users. Popular web servers include Apache, Nginx, Microsoft IIS, and LiteSpeed.</p>
+        </div>
+
+        <div class="subtopics" id="wamp">
+            <h3>3. WAMP</h3>
+            <p>WAMP stands for Windows, Apache, MySQL, and PHP. It is a stack of software commonly used in web development, enabling a local development environment to test websites or web applications before making them live.</p>
+        </div>
+
+        <div class="subtopics" id="static-dynamic">
+            <h3>4. Static and Dynamic Websites</h3>
+            <p>Static websites consist of web pages with fixed content, created with HTML and CSS, and show the same information to every visitor. Dynamic websites, on the other hand, interact with users and display different content based on user interaction or data fetched from a database.</p>
+        </div>
+
+ 
+        <nav>
+            <a href="#client-side-server-side">Client-Side & Server-Side</a>
+            <a href="#web-servers">Web Servers</a>
+            <a href="#wamp">WAMP</a>
+            <a href="#static-dynamic">Static & Dynamic Websites</a>
+        </nav>
+    </div>
+
+    
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>

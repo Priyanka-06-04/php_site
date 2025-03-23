@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Definitions</title>
+    <link rel="stylesheet" href="styleforsidebar.css">
+    <style>
+        /* Basic styles for the sidebar */
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            width: 250px;
+            padding: 15px;
+        }
+
+        .sidebar a {
+            color: black;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: white;
+            background-color: #45a049;
+        }
+
+        .dropdown {
+            display: none;
+            padding-left: 15px;
+        }
+
+        .dropdown a {
+            background-color: #b6cef1;
+        }
+
+        .dropdown a:hover {
+            background-color: #367c39;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2><a href="first.html" target="rightframe">Content</a></h2>
+        <!-- Introduction to Web Application -->
+        <a href="webappli.html" target="rightframe" class="main-link">Introduction to Web Application</a>
+        <div class="dropdown" id="dropdown1">
+            <a href="webappli.html#topic1" target="rightframe">Web Applications</a>
+            <a href="webappli.html#topic2" target="rightframe">Scripts</a>
+            <a href="webappli.html#topic3" target="rightframe">Client-Side Scripting</a>
+            <a href="webappli.html#topic4" target="rightframe">Server-Side Scripting</a>
+        </div>
+        <!-- Introduction PHP -->
+        <a href="intro.html" target="rightframe" class="main-link">Introduction to PHP</a>
+        <div class="dropdown" id="dropdown2">
+            <a href="intro.html#topic1" target="rightframe">History</a>
+            <a href="intro.html#topic2" target="rightframe">Key Features</a>
+            <a href="intro.html#topic3" target="rightframe">Common Applications</a>
+            
+        </div>
+
+        <!-- PHP Basics -->
+        <a href="basics.html" target="rightframe" class="main-link">PHP Basics</a>
+        <div class="dropdown" id="dropdown3">
+            <a href="basics.html#topic1" target="rightframe">Tokens</a>
+            <a href="basics.html#topic2" target="rightframe">Keywords</a>
+            <a href="basics.html#topic3" target="rightframe">Indentifier</a>
+            <a href="basics.html#topic4" target="rightframe">Variables</a>
+            <a href="basics.html#topic5" target="rightframe">Constants</a>
+            <a href="basics.html#topic6" target="rightframe">Datatypes</a>
+        </div>
+        <!-- Operators -->
+        <a href="operator.html" target="rightframe" class="main-link">Operators</a>
+        <div class="dropdown" id="dropdown4">
+            <a href="operator.html#topic1" target="rightframe">Arithmetic Operator</a>
+            <a href="operator.html#topic2" target="rightframe">Assignment Operator</a>
+            <a href="operator.html#topic3" target="rightframe">Comparison Operator</a>
+            <a href="operator.html#topic4" target="rightframe">Logical Operator</a>
+            <a href="operator.html#topic5" target="rightframe">Increment/Decrement Operator</a>
+            <a href="operator.html#topic6" target="rightframe">String Operator</a>
+            <a href="operator.html#topic7" target="rightframe">Array Operator</a>
+        </div>
+
+        <!-- Control Structures -->
+        <a href="decision.html" target="rightframe" class="main-link">Control Structures</a>
+        <div class="dropdown" id="dropdown5">
+            <a href="decision.html#topic1" target="rightframe">Introduction</a>
+            <a href="decision.html#topic2" target="rightframe">Types of Control Structures</a>
+            <a href="decision.html#topic3" target="rightframe">Branching Statements</a>
+            <a href="decision.html#topic4" target="rightframe">Nested-if</a>
+            <a href="decision.html#topic5" target="rightframe">Switch Statement</a>
+        </div>
+        <!-- Loops -->
+        <a href="loop.html" target="rightframe" class="main-link">Loops</a>
+        <div class="dropdown" id="dropdown6">
+            <a href="loop.html#topic1" target="rightframe">For loop</a>
+            <a href="loop.html#topic2" target="rightframe">While loop</a>
+            <a href="loop.html#topic3" target="rightframe">do-while loop</a>
+            <a href="loop.html#topic4" target="rightframe">Forech</a>
+        </div>
+
+        <!-- Functions -->
+        <a href="function.html" target="rightframe" class="main-link">Functions</a>
+        <div class="dropdown" id="dropdown7">
+            <a href="function.html#topic1" target="rightframe">Categories of function</a>
+            <a href="function.html#topic2" target="rightframe">Defintion of function</a>
+            <a href="function.html#topic3" target="rightframe">Callng a function</a>
+            <a href="function.html#topic4" target="rightframe">Built-in-function</a>
+            <a href="function.html#topic5" target="rightframe">Return Values</a>
+            <a href="function.html#topic6" target="rightframe">Function Parameters</a>
+            <a href="function.html#topic7" target="rightframe">Passing Parameters to Functions</a>
+            <a href="function.html#topic8" target="rightframe">Variable Scope</a>
+        </div>
+
+         <!-- Arrays -->
+         <a href="array.html" target="rightframe" class="main-link">Arrays</a>
+         <div class="dropdown" id="dropdown8">
+             <a href="array.html#topic1" target="rightframe">Anatomy of Array</a>
+             <a href="array.html#topic2" target="rightframe">Types of Array</a>
+             <a href="array.html#topic3" target="rightframe">Common Array Functions</a>
+             <a href="array.html#topic4" target="rightframe">Iteration of Array</a>
+         </div>
+           <!-- Strings -->
+           <a href="string.html" target="rightframe" class="main-link">Strings</a>
+           <div class="dropdown" id="dropdown9">
+               <a href="string.html#topic1" target="rightframe">Types of strings</a>
+               <a href="string.html#topic2" target="rightframe">String Concatenation</a>
+               <a href="string.html#topic3" target="rightframe">String Length - strlen()</a>
+               <a href="string.html#topic4" target="rightframe">String Position - strpos()</a>
+               <a href="string.html#topic5" target="rightframe">String Replacement - str_replace()</a>
+               <a href="string.html#topic6" target="rightframe">String Trimming - trim()</a>
+               <a href="string.html#topic7" target="rightframe">String Uppercase - strtoupper()</a>
+               <a href="string.html#topic8" target="rightframe">String Substring - substr()</a>
+               <a href="string.html#topic9" target="rightframe">String Split - explode()</a>
+           </div>
+        <!-- Forms -->
+        <a href="forms.html" target="rightframe" class="main-link">FORMS</a>
+        <div class="dropdown" id="dropdown10">
+            <a href="forms.html#topic1" target="rightframe">Introduction to Forms</a>
+            <a href="forms.html#topic2" target="rightframe">Form Attributes</a>
+            <a href="forms.html#topic3" target="rightframe">Form Controls</a>
+            <a href="forms.html#topic4" target="rightframe">Super Global Variables</a>
+        </div>
+        <!--Database-->
+        <a href="database.html" target="rightframe" class="main-link">Database Connection</a>
+        <div class="dropdown" id="dropdown11">
+            <a href="database.html#topic1" target="rightframe">Database Queries</a>
+            <a href="database.html#topic2" target="rightframe">Connecting a Database</a>
+            <a href="database.html#topic3" target="rightframe">Create a database</a>
+            <a href="database.html#topic4" target="rightframe">Creating a table</a>
+            <a href="database.html#topic5" target="rightframe">Inserting a row into table</a>
+            <a href="database.html#topic6" target="rightframe">Fetching data from table</a>
+            <a href="database.html#topic7" target="rightframe">Delete from table</a>
+
+        </div>
+         <!--Maintaining User State-->
+         <a href="cookie.html" target="rightframe" class="main-link">Maintaining User State</a>
+         <div class="dropdown" id="dropdown12">
+             <a href="cookie.html#topic1" target="rightframe">Create a cookies & Read a cookie</a>
+             <a href="cookie.html#topic2" target="rightframe">Modify a Cookie</a>
+             <a href="cookie.html#topic3" target="rightframe">Delete a Cookie</a>
+             <a href="cookie.html#topic4" target="rightframe">Session</a>
+             <a href="cookie.html#topic5" target="rightframe">Get PHP Session Variable Values</a>
+             <a href="cookie.html#topic6" target="rightframe">Modify a PHP Session Variable</a>
+             <a href="cookie.html#topic7" target="rightframe">Destroy a PHP Session</a>
+ 
+         </div>
+         <!--File Handling-->
+         <a href="file.html" target="rightframe" class="main-link">File Handling</a>
+         <div class="dropdown" id="dropdown13">
+            <a href="file.html#topic1" target="rightframe">File Modes</a>
+             <a href="file.html#topic2" target="rightframe">fopen</a>
+             <a href="file.html#topic3" target="rightframe">fread</a>
+             <a href="file.html#topic4" target="rightframe">fclose</a>
+             <a href="file.html#topic5" target="rightframe">feof</a>
+             <a href="file.html#topic6" target="rightframe">fgets</a>
+             <a href="file.html#topic7" target="rightframe">fgetc</a>
+             <a href="file.html#topic8" target="rightframe">file_exists</a>
+             <a href="file.html#topic9" target="rightframe">filesize</a>
+         </div>
+
+    </div>
+
+    <script>
+        
+        document.querySelectorAll('.main-link').forEach((link, index) => {
+            link.addEventListener('click', function(event) {
+                const dropdown = document.getElementById(`dropdown${index + 1}`);
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

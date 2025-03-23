@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Applications Overview</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Forms</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction to forms</h2>
+        <div class="subtopics" id="topic1">
+            <h3>Forms</h3>
+            
+        <p>
+            In PHP, forms are essential for interacting with users and      collecting data. They allow users to input information, which can then be processed by a PHP script.
+        <br>
+            We can create and use forms in PHP. To get form data, we need to use PHP superglobals $_GET and $_POST.
+        <br>
+        <br>
+            The form request may be get or post. To retrieve data from get request, we need to use $_GET, for post request $_POST.
+        <br>
+    The HTML &lt;form> tag is used to create a form.The syntax of 
+&lt;form> tag is:
+</p>
+
+        <code class="code1">
+            <h3>Syntax:</h3>
+            <pre>
+                &lt;form action="script url" method="GET/POST">
+                     form elements
+                &lt;/form>
+            </pre>
+
+        </code> 
+    </div>
+        <div class="subtopics"  id="topic2">
+            <h3>Forms Attributes</h3>
+            <p>
+                In HTML, the &lt;form> tag has several attributes that help define how the form data will be handled. Two of the most essential attributes are action and method.
+                <br>
+                <span>Action: </span>The action attribute specifies where the form data should be sent once the user submits it. It usually contains a URL pointing to a PHP script or a server-side resource that will process the form data.
+                <br>
+                <span>Method: </span>The method attribute specifies how the form data should be sent to the server. There are two main methods: GET and POST.
+                <br>
+                   <span>GET:</span><br>
+                   ->Data is sent as URL parameters, visible in the browser address bar.
+<br>
+                   ->Form data is appended to the URL as a query string.
+          <br>         
+                   ->The size of the data is limited by the URL length (generally around 2048 characters).
+           <br>        
+                   ->Use GET for non-sensitive data like search queries or simple data retrieval.
+<br><code class="code1">
+    <h3>Syntax:</h3>
+    <pre>
+        
+        &ltform action="search.php" method="get">
+            &lt;label for="query">Search:&lt/label>
+            &lt;input type="text" id="query" name="query">
+            &lt;input type="submit" value="Search">
+        &lt;/form>
+        
+    </pre>
+
+</code> 
+                   <span>POST:</span>
+                   <br>->Data is sent as part of the HTTP request body, making it invisible in the browser’s address bar.
+
+                 <br>  ->There’s no size limitation for the form data (although server configurations may impose limits).
+              <br>     
+                  -> More secure than GET and suitable for sending sensitive data like passwords, files, and personal information.
+            </p>
+            <code class="code1">
+                <h3>Syntax:</h3>
+                <pre>
+                    &ltform action="search.php" method="post">
+                        &lt;label for="query">Search:&lt/label>
+                        &lt;input type="text" id="query" name="query">
+                        &lt;input type="submit" value="Search">
+                    &lt;/form>
+                    
+                </pre>
+            
+            </code> 
+        </div>
+
+        <div class="subtopics"id="topic3">
+            <h3>HTML Forms Control</h3>
+            <p>
+                There are different types of controls are used to collect data from the user using HTML forms.The commonly used controls of HTML forms are as under.
+                <li>
+                    Text Fields
+                </li>
+                <li>
+                    Text Area
+                </li>
+                <li>
+                    Checkbox
+                </li>
+                <li>
+                    Radio Button
+                </li>
+                <li>
+                    Select Box/List Box
+                </li>
+                <li>
+                    Hidden controls
+                </li>
+                <li>
+                    Submit and Reset Buttons
+                </li>
+            </p>
+            <code class="code1">
+                <pre>
+                
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>HTML Form Controls Example&lt;/title>
+&lt;/head>
+&lt;body>
+&lt;h3>HTML Forms Control&lt;/h3>
+&lt;form action="process.php" method="post">
+    //Text Field 
+        &lt;label for="name">Name:&lt;/label>
+        &lt;input type="text" id="name" name="name" required><br><br>
+        
+        // Text Area 
+        &lt;label for="message">Message:&lt;/label><br>
+        &lt;textarea id="message" name="message" rows="4" cols="50"
+         required>&lt;/textarea><br><br>
+        
+        //Checkbox 
+        &lt;label>Choose your hobbies:&lt;/label><br>
+        &lt;input type="checkbox" name="hobbies[]" value="Reading">
+         Reading
+        &lt;input type="checkbox" name="hobbies[]" value="Traveling">
+         Traveling
+        &lt;input type="checkbox" name="hobbies[]" value="Music"> 
+        Music<br><br>
+    
+        &lt;label for="gender">Gender:&lt;/label><br>
+        &lt;input type="radio" name="gender" value="Male" required>
+         Male
+        &lt;input type="radio" name="gender" value="Female" required>
+         Female<br><br>
+        
+        // Select Box/List Box 
+        &lt;label for="country">Country:&lt;/label>
+        &lt;select id="country" name="country" required>
+        &lt;option value="India">India&lt;/option>
+        &lt;option value="USA">USA&lt;/option>
+        &lt;option value="UK">UK&lt;/option>
+        &lt;/select><br><br>
+        
+        // Hidden Control 
+        &lt;input type="hidden" name="hiddenValue" value="12345">
+        
+      // Submit and Reset Buttons 
+        &lt;input type="submit" value="Submit">
+        &lt;input type="reset" value="Reset">
+        &lt;/form>
+        &lt;/body>
+        &lt;/html>
+</pre>
+            </code>
+            <h3>
+                PHP Script to Process Form Data
+            </h3>
+            <code class="code1">
+                <pre>
+                    // process.php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Text Field
+
+    $name = htmlspecialchars($_POST['name']);
+
+    // Text Area
+    $message = htmlspecialchars($_POST['message']);
+
+    // Checkbox (as an array)
+    $hobbies = isset($_POST['hobbies']) ? $_POST['hobbies'] : [];
+
+    // Radio Button
+    $gender = htmlspecialchars($_POST['gender']);
+
+    // Select Box
+     $country = htmlspecialchars($_POST['country']);
+
+    // Hidden Control
+     $hiddenValue = htmlspecialchars($_POST['hiddenValue']);
+    
+    echo "&lt;h2&gt;Form Data Received&lt;/h2&gt;&lt;br>";
+    echo "&lt;strong&gt;Name:&lt;/strong&gt; $name&lt;br&gt;&lt;br>";
+    echo "&lt;strong&gt;Message:&lt;/strong&gt; $message&lt;br&gt;&lt;br>";
+    echo "&lt;strong&gt;Hobbies:&lt;/strong&gt; " . implode(", ", $hobbies) . 
+    "&lt;br&gt;&lt;br>";
+    echo "&lt;strong&gt;Gender:&lt;/strong&gt; $gender&lt;br&gt;&lt;br>";
+    echo "&lt;strong&gt;Country:&lt;/strong&gt; $country&lt;br&gt;&lt;br>";
+    echo "&lt;strong&gt;Hidden Value:&lt;/strong&gt; $hiddenValue&lt;br&gt;&lt;br>";
+}
+
+                </pre>
+            </code>
+        </div>
+
+        <div class="subtopics" id="topic4">
+            <h3>Super Global Variables</h3>
+            <p>
+                <table>
+                    <tr>
+                        <th>Superglobal Variable</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td><code>$_GLOBALS</code></td>
+                        <td>This superglobal is used to access global variables from anywhere in the PHP script, including functions and methods. It contains all the global variables.</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_SERVER</code></td>
+                        <td>Contains information about headers, paths, and script locations. It provides details about the server and execution environment (e.g., server name, request method, IP address, etc.).</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_GET</code></td>
+                        <td>An associative array that contains data sent through a URL using the HTTP GET method. It’s used to collect form data from a URL or query string.</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_POST</code></td>
+                        <td>An associative array that contains data sent through an HTTP POST method. It’s used to collect data securely from a form that is not visible in the URL.</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_FILES</code></td>
+                        <td>Contains information about uploaded files, including details like file name, size, temporary name, and error status. It's used to handle file uploads.</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_COOKIE</code></td>
+                        <td>An associative array that contains data from cookies sent by the browser. It’s used to retrieve values stored in cookies on the client-side.</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_SESSION</code></td>
+                        <td>Used to store and retrieve session variables, which are stored on the server and persist across multiple pages during a user's visit.</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_REQUEST</code></td>
+                        <td>An associative array that contains data from <code>$_GET</code>, <code>$_POST</code>, and <code>$_COOKIE</code> combined. It can be used to collect data from different sources.</td>
+                    </tr>
+                    <tr>
+                        <td><code>$_ENV</code></td>
+                        <td>Contains environment variables passed to the PHP script. It is often used to access server configuration or environment information.</td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+       
+
+ 
+        <nav>
+            <a href="#topic1">Forms</a>
+            <a href="#topic2">Form Attributes</a>
+            <a href="#topic3">HTML Form Controls</a>
+            <a href="#topic4">Super Global Variables</a>
+        </nav>
+        
+    </div>
+
+    
+    <footer>
+        <p>END OF PAGE</p>
+    </footer>
+</body>
+</html>
